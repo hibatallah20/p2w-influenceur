@@ -1,0 +1,135 @@
+import { StyleSheet } from "react-native";
+import COLORS from "../../constants/colors"; 
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: COLORS.cardBackground,
+
+  },
+
+  button: {
+    width: "100%",
+    height: 150,
+    borderRadius: 16,
+    overflow: "hidden", 
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: COLORS.black, 
+  },
+
+  buttonText: {
+    color: COLORS.white,
+    fontSize: 22,
+    fontWeight: "bold",
+    paddingHorizontal: 16,
+    paddingVertical: 8,
+    borderRadius: 12,
+    textAlign: "center",
+  },
+  searchWrapper: {
+  flexDirection: "row",
+  alignItems: "center",
+  borderColor: COLORS.border,
+  borderWidth: 1,
+  borderRadius: 8,
+  paddingHorizontal: 10,
+  paddingVertical: 10,
+  marginBottom: 15,
+  backgroundColor: COLORS.white,
+},
+searchIcon: {
+  marginRight: 8,
+},
+searchInput: {
+  flex: 1,
+  height: 40,
+  fontSize: 16,
+},
+title: {
+  fontSize: 16,        // plus petit
+  fontWeight: '700',
+  color: COLORS.textDark,
+  marginBottom: 4,     // moins d’espace sous le titre
+},
+  buttonsContainer: {
+    flex: 1,
+    justifyContent: 'space-around',
+  },
+  navButton: {
+    backgroundColor: COLORS.primary,
+    paddingVertical: 14,
+    borderRadius: 8,
+    alignItems: 'center',
+  },
+  navButtonText: {
+    color: COLORS.white,
+    fontSize: 18,
+    fontWeight: '600',
+  },
+  cardGrid: {
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'space-between',
+},
+
+card: {
+  width: '48%',
+  backgroundColor: COLORS.white,
+  borderRadius: 8,
+  padding: 10,
+  marginBottom: 20,
+  height: 240,
+  elevation: 2,
+  shadowColor: '#000',
+  shadowOffset: { width: 0, height: 1 },
+  shadowOpacity: 0.2,
+  shadowRadius: 1.41,
+},
+image: {
+    width: '100%',
+    height: 100,
+    borderRadius: 10,
+    marginBottom: 12,
+  },
+  row: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  rating: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  ratingText: {
+  marginLeft: 4,
+  color: COLORS.textPrimary,
+  fontWeight: '600',
+  fontSize: 12,        // plus petit
+},
+category: {
+  color: COLORS.textSecondary,
+  marginTop: 2,
+  fontSize: 12,        // plus petit
+},
+
+priceNote: {
+  marginTop: 4,
+  color: COLORS.textSecondary,
+  fontSize: 11,        // plus petit
+  fontStyle: 'italic',
+},
+  winRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginTop: 6,
+  },
+winText: {
+  marginLeft: 5,
+  color: '#FFD700',
+  fontWeight: 'bold',
+  fontSize: 12,        // plus petit
+},
+});
+
+export default styles;
