@@ -16,8 +16,7 @@ const styles = StyleSheet.create({
   },
   topIllustration: {
     width: "100%",
-    margin: 0,
-    padding: 0,
+   
   },
   illustrationImage: {
     width: "100%",

@@ -1,12 +1,13 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet,  Dimensions } from "react-native";
 import COLORS from "../../constants/colors";
+
+const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
     flexGrow: 1,
    backgroundColor: "#ffffff",
     padding: 20,
-    justifyContent: "center",
   },
   card: {
     backgroundColor: COLORS.cardBackground,
@@ -35,6 +36,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: COLORS.textSecondary,
     textAlign: "center",
+    marginBottom: 30,
   },
   formContainer: { marginBottom: 16 },
   inputGroup: { marginBottom: 20 },
@@ -150,7 +152,7 @@ optionText: {
 
 infoBox: {
   backgroundColor: 'white',
-  padding: 15,
+  padding: 20,
   borderRadius: 10,
   shadowColor: '#000',
   shadowOpacity: 0.1,
@@ -158,6 +160,7 @@ infoBox: {
   shadowRadius: 4,
   elevation: 3,
   marginBottom: 150,
+  marginTop: 60,
 },
 
 infoText: {
@@ -167,14 +170,21 @@ infoText: {
 },
 
 loginText: {
-  fontSize: 12,
+  fontSize: 13,
   color: '#333',
-   textAlign: 'center',
+  textAlign: 'center',
 },
 
 loginLink: {
   color: '#00CFE8',
-  textDecorationLine: 'underline',
+},
+
+ illustrationImage: {
+  width: width * 0.3,   // 50% de la largeur écran
+  height: width * 0.4,
+  alignSelf: 'center',  // pour centrer l’image si la largeur < 100%
+  marginLeft: 10,
+
 },
 
 });

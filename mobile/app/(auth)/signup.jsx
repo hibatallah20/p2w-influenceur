@@ -1,4 +1,4 @@
-import {View, Text, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, ActivityIndicator,Alert,} from 'react-native';
+import {View, Text, KeyboardAvoidingView, Platform, TextInput, TouchableOpacity, ActivityIndicator,Alert,Image, ScrollView} from 'react-native';
 import styles from '../../assets/styles/signup.styles';
 import { Ionicons } from '@expo/vector-icons';
 import COLORS from '../../constants/colors';
@@ -34,7 +34,14 @@ export default function Signup() {
       style={{ flex: 1 }}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
-      <View style={styles.container}>
+    <ScrollView
+     style={styles.container}               // style pour le conteneur ScrollView
+     contentContainerStyle={{               // style pour le contenu scrollable à l'intérieur
+     justifyContent: 'center',            // tu mets ici justifyContent
+     flexGrow: 1                         // important pour que ça prenne toute la hauteur dispo
+    }}
+    >
+
         <View >
           {step === 'choice' ? (
             // Écran de choix
@@ -59,18 +66,28 @@ export default function Signup() {
       </Text>
     </View>
 
-    <Text style={styles.loginText}>Already have an account?</Text>
     <TouchableOpacity onPress={() => router.back()}>
+    <Text style={styles.loginText}>
+    Already have an account ? 
     <Text style={styles.loginLink}>Login</Text>
-    </TouchableOpacity>
+    
+  </Text>
+</TouchableOpacity>
   </View >
           ) : (
             // Formulaire existant inchangé
             <>
+             
+            <Image 
+              source={require("../../assets/images/p2w.png")}
+              style={styles.illustrationImage}
+              resizeMode="contain"
+            />
+           
+             <Text style={styles.subtitle}>Join our exclusive community!</Text>
             <View style= {styles.card}>
              <View style={styles.header}>
-                <Text style={styles.title}>P2W</Text>
-                <Text style={styles.subtitle}>Share your favorite pubs</Text>
+               
               </View>
 
               <View style={styles.formContainer}>
@@ -224,7 +241,7 @@ export default function Signup() {
             </>
           )}
         </View>
-      </View>
+      </ScrollView>
     </KeyboardAvoidingView>
   );
 }
