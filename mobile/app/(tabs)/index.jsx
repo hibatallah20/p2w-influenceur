@@ -94,8 +94,8 @@ export default function HomeScreen() {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={() => router.push("/(help)/about")}>
-  <Text style={styles.helpText}>Besoin de l'aide ?</Text>
-</TouchableOpacity>
+         <Text style={styles.helpText}>Besoin de l'aide ?</Text>
+      </TouchableOpacity>
     </ScrollView>
   );
 }
