@@ -33,15 +33,17 @@ export default function Restaurant1() {
 
         <Text style={styles.sectionTitle}>Détails</Text>
         <View style={styles.detailsContainer}>
-        <Text style={styles.detailBadge}>Asiatique</Text>
-       <Text style={styles.detailBadge}>Chinois</Text>
-       <Text style={styles.detailBadge}>Vitenamienne</Text>
-      <Text style={styles.detailBadge}>Plat conseillé: Crepe Vitenamienne</Text>
+        <Text style={styles.detailBadge}>Cuisine marocaine</Text>
+       <Text style={styles.detailBadge}>Cuisine traditionnelle</Text>
+       <Text style={styles.detailBadge}>Cuisine méditerranéenne</Text>
+      <Text style={styles.detailBadge}>Plat conseillé: Tajine d'agneau aux pruneaux</Text>
       </View>
 
         <Text style={styles.sectionTitle}>Description</Text>
         <Text style={styles.description}>
-          Voici une brève description du restaurant. Délicieuses pizzas faites maison.
+          Régimes spéciaux : Végétariens bienvenus.{"\n"}
+          Repas : Déjeuner, Dîner.{"\n"}
+          Fonctionnalités : Plats à emporter, Réservations, Places assises, Accessible en fauteuil roulant, Cartes bancaires acceptées, Service de table.
         </Text>
         {/* LOCALISATION */}
          <Text style={styles.sectionTitle}>Localisation</Text>

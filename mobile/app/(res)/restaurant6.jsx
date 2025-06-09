@@ -32,15 +32,17 @@ export default function Restaurant6() {
 
         <Text style={styles.sectionTitle}>Détails</Text>
         <View style={styles.detailsContainer}>
-        <Text style={styles.detailBadge}>Asiatique</Text>
-       <Text style={styles.detailBadge}>Chinois</Text>
-       <Text style={styles.detailBadge}>Vitenamienne</Text>
-      <Text style={styles.detailBadge}>Plat conseillé: Crepe Vitenamienne</Text>
+        <Text style={styles.detailBadge}>Cuisine japonaise</Text>
+       <Text style={styles.detailBadge}>Sushis frais</Text>
+       <Text style={styles.detailBadge}>Spécialités makis et sashimis</Text>
+      <Text style={styles.detailBadge}>Plat conseillé: Assortiment de sushi deluxe</Text>
       </View>
 
         <Text style={styles.sectionTitle}>Description</Text>
         <Text style={styles.description}>
-          Voici une brève description du restaurant. Délicieuses pizzas faites maison.
+          Régimes spéciaux : Options végétariennes et sans lactose disponibles.{"\n"}
+          Repas : Déjeuner, Dîner.{"\n"}
+          Fonctionnalités : Livraison à domicile, Service au comptoir, Wi-Fi gratuit, Accessible en fauteuil roulant, Parking à proximité.
         </Text>
 
           <Text style={styles.sectionTitle}>Localisation</Text>

@@ -32,15 +32,17 @@ export default function Restaurant2() {
 
         <Text style={styles.sectionTitle}>Détails</Text>
         <View style={styles.detailsContainer}>
-        <Text style={styles.detailBadge}>Asiatique</Text>
-       <Text style={styles.detailBadge}>Chinois</Text>
-       <Text style={styles.detailBadge}>Vitenamienne</Text>
-      <Text style={styles.detailBadge}>Plat conseillé: Crepe Vitenamienne</Text>
+        <Text style={styles.detailBadge}>Cuisine italienne</Text>
+       <Text style={styles.detailBadge}>Pâtes fraîches</Text>
+       <Text style={styles.detailBadge}>Pizza au feu de bois</Text>
+      <Text style={styles.detailBadge}>Plat conseillé: Risotto aux champignons</Text>
       </View>
 
         <Text style={styles.sectionTitle}>Description</Text>
         <Text style={styles.description}>
-          Voici une brève description du restaurant. Délicieuses pizzas faites maison.
+          Régimes spéciaux : Sans gluten disponibles.{"\n"}
+          Repas : Petit-déjeuner, Déjeuner, Dîner.{"\n"}
+          Fonctionnalités : Terrasse extérieure, Wi-Fi gratuit, Parking disponible, Service en terrasse, Animaux acceptés.
         </Text>
          <Text style={styles.sectionTitle}>Localisation</Text>
         <View style={styles.mapContainer}>

@@ -32,15 +32,17 @@ export default function Bar1() {
 
         <Text style={styles.sectionTitle}>Détails</Text>
         <View style={styles.detailsContainer}>
-        <Text style={styles.detailBadge}>Asiatique</Text>
-       <Text style={styles.detailBadge}>Chinois</Text>
-       <Text style={styles.detailBadge}>Vitenamienne</Text>
-      <Text style={styles.detailBadge}>Plat conseillé: Crepe Vitenamienne</Text>
+         <Text style={styles.detailBadge}>Bar à bières</Text>
+         <Text style={styles.detailBadge}>Cocktails variés</Text>
+         <Text style={styles.detailBadge}>Ambiance musicale</Text>
+         <Text style={styles.detailBadge}>Plat conseillé: Planche apéritive</Text>
       </View>
 
         <Text style={styles.sectionTitle}>Description</Text>
         <Text style={styles.description}>
-          Voici une brève description du restaurant. Délicieuses pizzas faites maison.
+          Régimes spéciaux : Snacks végétariens disponibles.{"\n"}
+          Repas : Apéritifs, Soirées.{"\n"}
+          Fonctionnalités : Happy hour, Wi-Fi gratuit, Terrasse extérieure, Service au bar, Animations régulières.
         </Text>
 
         <Text style={styles.sectionTitle}>Localisation</Text>

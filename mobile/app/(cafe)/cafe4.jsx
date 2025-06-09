@@ -32,15 +32,17 @@ export default function Cafe4() {
 
         <Text style={styles.sectionTitle}>Détails</Text>
         <View style={styles.detailsContainer}>
-        <Text style={styles.detailBadge}>Asiatique</Text>
-       <Text style={styles.detailBadge}>Chinois</Text>
-       <Text style={styles.detailBadge}>Vitenamienne</Text>
-      <Text style={styles.detailBadge}>Plat conseillé: Crepe Vitenamienne</Text>
+        <Text style={styles.detailBadge}>Café moderne</Text>
+       <Text style={styles.detailBadge}>Boissons artisanales</Text>
+       <Text style={styles.detailBadge}>Snacks et pâtisseries</Text>
+      <Text style={styles.detailBadge}>Plat conseillé: Muffin aux myrtilles</Text>
       </View>
 
         <Text style={styles.sectionTitle}>Description</Text>
         <Text style={styles.description}>
-          Voici une brève description du restaurant. Délicieuses pizzas faites maison.
+          Régimes spéciaux : Options sans lactose et végétariennes disponibles.{"\n"}
+          Repas : Petit-déjeuner, Déjeuner.{"\n"}
+          Fonctionnalités : Wi-Fi gratuit, Prises électriques, Service à emporter, Terrasse intérieure.
         </Text>
 
           <Text style={styles.sectionTitle}>Localisation</Text>

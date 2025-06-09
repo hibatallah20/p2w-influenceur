@@ -32,15 +32,17 @@ export default function Cafe2() {
 
         <Text style={styles.sectionTitle}>Détails</Text>
         <View style={styles.detailsContainer}>
-        <Text style={styles.detailBadge}>Asiatique</Text>
-       <Text style={styles.detailBadge}>Chinois</Text>
-       <Text style={styles.detailBadge}>Vitenamienne</Text>
-      <Text style={styles.detailBadge}>Plat conseillé: Crepe Vitenamienne</Text>
+        <Text style={styles.detailBadge}>Café spécialisé</Text>
+       <Text style={styles.detailBadge}>Espresso, Latte, Cappuccino</Text>
+       <Text style={styles.detailBadge}>Pâtisseries artisanales</Text>
+      <Text style={styles.detailBadge}>Plat conseillé: Tarte aux fruits frais</Text>
       </View>
 
         <Text style={styles.sectionTitle}>Description</Text>
         <Text style={styles.description}>
-          Voici une brève description du restaurant. Délicieuses pizzas faites maison.
+          Régimes spéciaux : Options sans lactose et vegan disponibles.{"\n"}
+          Repas : Petit-déjeuner, Déjeuner, Goûter.{"\n"}
+          Fonctionnalités : Wi-Fi haut débit, Prise électrique aux tables, Terrasse intérieure, Service à emporter.
         </Text>
 
          <Text style={styles.sectionTitle}>Localisation</Text>

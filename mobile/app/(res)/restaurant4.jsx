@@ -32,15 +32,17 @@ export default function Restaurant4() {
 
         <Text style={styles.sectionTitle}>Détails</Text>
         <View style={styles.detailsContainer}>
-        <Text style={styles.detailBadge}>Asiatique</Text>
-       <Text style={styles.detailBadge}>Chinois</Text>
-       <Text style={styles.detailBadge}>Vitenamienne</Text>
-      <Text style={styles.detailBadge}>Plat conseillé: Crepe Vitenamienne</Text>
+        <Text style={styles.detailBadge}>Cuisine italienne</Text>
+       <Text style={styles.detailBadge}>Pizzas artisanales</Text>
+       <Text style={styles.detailBadge}>Pâtes maison</Text>
+      <Text style={styles.detailBadge}>Plat conseillé: Lasagnes à la bolognaise</Text>
       </View>
 
         <Text style={styles.sectionTitle}>Description</Text>
         <Text style={styles.description}>
-          Voici une brève description du restaurant. Délicieuses pizzas faites maison.
+          Régimes spéciaux : Options végétariennes disponibles.{"\n"}
+          Repas : Déjeuner, Dîner.{"\n"}
+          Fonctionnalités : Réservations en ligne, Terrasse extérieure, Service de vin, Accessible aux personnes à mobilité réduite, Parking à proximité.
         </Text>
 
          <Text style={styles.sectionTitle}>Localisation</Text>

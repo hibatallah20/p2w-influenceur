@@ -32,15 +32,17 @@ export default function Restaurant5() {
 
         <Text style={styles.sectionTitle}>Détails</Text>
         <View style={styles.detailsContainer}>
-        <Text style={styles.detailBadge}>Asiatique</Text>
-       <Text style={styles.detailBadge}>Chinois</Text>
-       <Text style={styles.detailBadge}>Vitenamienne</Text>
-      <Text style={styles.detailBadge}>Plat conseillé: Crepe Vitenamienne</Text>
+        <Text style={styles.detailBadge}>Steakhouse</Text>
+       <Text style={styles.detailBadge}>Viandes grillées</Text>
+       <Text style={styles.detailBadge}>Spécialités américaines</Text>
+      <Text style={styles.detailBadge}>Plat conseillé: Côte de bœuf grillée</Text>
       </View>
 
         <Text style={styles.sectionTitle}>Description</Text>
         <Text style={styles.description}>
-          Voici une brève description du restaurant. Délicieuses pizzas faites maison.
+          Régimes spéciaux : Options sans gluten et keto disponibles.{"\n"}
+          Repas : Déjeuner, Dîner.{"\n"}
+          Fonctionnalités : Bar à cocktails, Réservations recommandées, Parking privé, Service en salle, Musique live certains soirs.
         </Text>
 
          <Text style={styles.sectionTitle}>Localisation</Text>

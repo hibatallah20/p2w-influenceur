@@ -32,15 +32,17 @@ export default function Restaurant3() {
 
         <Text style={styles.sectionTitle}>Détails</Text>
         <View style={styles.detailsContainer}>
-        <Text style={styles.detailBadge}>Asiatique</Text>
-       <Text style={styles.detailBadge}>Chinois</Text>
-       <Text style={styles.detailBadge}>Vitenamienne</Text>
-      <Text style={styles.detailBadge}>Plat conseillé: Crepe Vitenamienne</Text>
+        <Text style={styles.detailBadge}>Cuisine méditerranéenne</Text>
+       <Text style={styles.detailBadge}>Grillades</Text>
+       <Text style={styles.detailBadge}>Plats végétariens</Text>
+      <Text style={styles.detailBadge}>Plat conseillé: Brochette de poulet marinée</Text>
       </View>
 
         <Text style={styles.sectionTitle}>Description</Text>
         <Text style={styles.description}>
-          Voici une brève description du restaurant. Délicieuses pizzas faites maison.
+          Régimes spéciaux : Options végétariennes et sans lactose disponibles.{"\n"}
+          Repas : Déjeuner, Dîner, Brunch.{"\n"}
+          Fonctionnalités : Service à emporter, Livraison disponible, Wi-Fi gratuit, Parking sécurisé, Aire de jeux pour enfants.
         </Text>
 
          <Text style={styles.sectionTitle}>Localisation</Text>

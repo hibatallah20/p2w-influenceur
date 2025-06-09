@@ -89,7 +89,7 @@ image: {
   fontSize: 12,        // plus petit
 },
 category: {
-  color: '#30D5C8',            // texte bleu
+  color: '#00B8D2',            // texte bleu
   backgroundColor: '#ECF8FF',  // fond bleu ciel
   paddingHorizontal: 8,        // espace horizontal à l'intérieur
   paddingVertical: 4,          // espace vertical à l'intérieur

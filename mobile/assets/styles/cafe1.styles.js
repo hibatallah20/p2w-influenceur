@@ -81,8 +81,8 @@ const styles = StyleSheet.create({
 },
 
 detailBadge: {
-  backgroundColor: COLORS.textSecondary, 
-  color: COLORS.white,
+  backgroundColor: '#ECF8FF', 
+  color:'#00B8D2',
   paddingHorizontal: 12,
   paddingVertical: 6,
   borderRadius: 20,
