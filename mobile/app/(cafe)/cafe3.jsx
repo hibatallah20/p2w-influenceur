@@ -2,6 +2,8 @@ import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import styles from "../../assets/styles/cafe1.styles.js";
+import MapView, { Marker } from 'react-native-maps';
+
 
 export default function Cafe3() {
   const router = useRouter();
@@ -41,6 +43,28 @@ export default function Cafe3() {
         <Text style={styles.description}>
           Voici une brève description du restaurant. Délicieuses pizzas faites maison.
         </Text>
+
+          <Text style={styles.sectionTitle}>Localisation</Text>
+        <View style={styles.mapContainer}>
+          <MapView
+            style={{ flex: 1 }}
+            initialRegion={{
+              latitude: 34.03155,
+              longitude: -5.01289,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+            }}
+          >
+            <Marker
+              coordinate={{
+                latitude: 34.03155,
+                longitude: -5.01289,
+              }}
+              title="Maison Celeste"
+              description="Voici la localisation du Café"
+            />
+          </MapView>
+        </View>
 
         
       </ScrollView>

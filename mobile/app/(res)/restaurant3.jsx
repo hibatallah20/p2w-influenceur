@@ -2,6 +2,7 @@ import { View, Text, TouchableOpacity, Image, ScrollView } from "react-native";
 import { useRouter } from "expo-router";
 import { Ionicons, FontAwesome } from "@expo/vector-icons";
 import styles from "../../assets/styles/restaurant1.styles.js";
+import MapView, { Marker } from 'react-native-maps';
 
 export default function Restaurant3() {
   const router = useRouter();
@@ -41,6 +42,28 @@ export default function Restaurant3() {
         <Text style={styles.description}>
           Voici une brève description du restaurant. Délicieuses pizzas faites maison.
         </Text>
+
+         <Text style={styles.sectionTitle}>Localisation</Text>
+        <View style={styles.mapContainer}>
+          <MapView
+            style={{ flex: 1 }}
+            initialRegion={{
+              latitude: 34.03820,
+              longitude: -5.00834,
+              latitudeDelta: 0.01,
+              longitudeDelta: 0.01,
+            }}
+          >
+            <Marker
+              coordinate={{
+                latitude: 34.03820,
+                longitude: -5.00834,
+              }}
+              title="Medi Grill"
+              description="Voici la localisation du restaurant"
+            />
+          </MapView>
+        </View>
 
         
       </ScrollView>

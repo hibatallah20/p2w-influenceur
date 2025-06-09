@@ -90,6 +90,13 @@ detailBadge: {
   marginRight: 10,
   marginBottom: 10,
 },
+mapContainer: {
+  height: 200,
+  borderRadius: 10,
+  overflow: 'hidden',
+  marginBottom: 20,
+  marginTop: 10
+}
 });
 
 export default styles;
