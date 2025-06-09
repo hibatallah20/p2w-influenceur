@@ -34,8 +34,8 @@ export default function Cafe() {
     <Text style={styles.category} numberOfLines={1}>Café</Text>
     <Text style={styles.priceNote} >*Prix total de la commande : 10€</Text>
     <View style={styles.winRow}>
-      <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
       <Text style={styles.winText}>Win 3</Text>
+      <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
     </View>
   </TouchableOpacity>
   {/* CARD 2 */}
@@ -51,8 +51,8 @@ export default function Cafe() {
     <Text style={styles.category} numberOfLines={1}>Café</Text>
     <Text style={styles.priceNote} >*Prix total de la commande : 10€</Text>
     <View style={styles.winRow}>
-      <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
       <Text style={styles.winText}>Win 3</Text>
+      <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
     </View>
   </TouchableOpacity>
   {/* CARD 3 */}
@@ -68,8 +68,8 @@ export default function Cafe() {
     <Text style={styles.category} numberOfLines={1}>Café</Text>
     <Text style={styles.priceNote} >*Prix total de la commande : 10€</Text>
     <View style={styles.winRow}>
-      <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
       <Text style={styles.winText}>Win 3</Text>
+      <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
     </View>
   </TouchableOpacity>
   {/* CARD 4 */}
@@ -85,8 +85,8 @@ export default function Cafe() {
     <Text style={styles.category} numberOfLines={1}>Café</Text>
     <Text style={styles.priceNote} >*Prix total de la commande : 10€</Text>
     <View style={styles.winRow}>
-      <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
       <Text style={styles.winText}>Win 3</Text>
+      <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
     </View>
   </TouchableOpacity>
   

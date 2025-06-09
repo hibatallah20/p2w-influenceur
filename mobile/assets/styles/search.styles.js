@@ -108,25 +108,35 @@ image: {
   fontSize: 12,        // plus petit
 },
 category: {
-  color: COLORS.textSecondary,
-  marginTop: 2,
-  fontSize: 12,        // plus petit
+  color: '#30D5C8',            // texte bleu
+  backgroundColor: '#ECF8FF',  // fond bleu ciel
+  paddingHorizontal: 8,        // espace horizontal à l'intérieur
+  paddingVertical: 4,          // espace vertical à l'intérieur
+  borderRadius: 12,            // coins arrondis
+  alignSelf: 'flex-start',     // taille ajustée au contenu
+  fontSize: 12,
+  marginTop: 4,
+  fontWeight: '500',
+   marginBottom: 5,
 },
 
 priceNote: {
   marginTop: 4,
-  color: COLORS.textSecondary,
+  color: '#333333',
   fontSize: 11,        // plus petit
   fontStyle: 'italic',
+   marginBottom: 5,
+ 
 },
   winRow: {
     flexDirection: 'row',
     alignItems: 'center',
     marginTop: 6,
+    marginLeft: 10,
   },
 winText: {
-  marginLeft: 5,
-  color: '#FFD700',
+  marginLeft: 99,
+  color: '#333333',
   fontWeight: 'bold',
   fontSize: 12,        // plus petit
 },
