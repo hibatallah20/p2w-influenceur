@@ -35,10 +35,10 @@ export default function Signup() {
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
     >
     <ScrollView
-     style={styles.container}               // style pour le conteneur ScrollView
-     contentContainerStyle={{               // style pour le contenu scrollable à l'intérieur
-     justifyContent: 'center',            // tu mets ici justifyContent
-     flexGrow: 1                         // important pour que ça prenne toute la hauteur dispo
+     style={styles.container}               
+     contentContainerStyle={{              
+     justifyContent: 'center',            
+     flexGrow: 1                         
     }}
     >
 
@@ -62,14 +62,14 @@ export default function Signup() {
 
     <View style={styles.infoBox}>
       <Text style={styles.infoText}>
-        To create an influencer account, you will be required to connect your Instagram account.
+        Pour créer un compte influenceur, vous devrez connecter votre compte Instagram.
       </Text>
     </View>
 
     <TouchableOpacity onPress={() => router.back()}>
     <Text style={styles.loginText}>
-    Already have an account ? 
-    <Text style={styles.loginLink}>Login</Text>
+    Vous avez déjà un compte ? 
+    <Text style={styles.loginLink}>Se connecter</Text>
     
   </Text>
 </TouchableOpacity>
@@ -84,7 +84,7 @@ export default function Signup() {
               resizeMode="contain"
             />
            
-             <Text style={styles.subtitle}>Join our exclusive community!</Text>
+             <Text style={styles.subtitle}>Rejoignez notre communauté exclusive!</Text>
             <View style= {styles.card}>
              <View style={styles.header}>
                
@@ -93,7 +93,7 @@ export default function Signup() {
               <View style={styles.formContainer}>
                 {/* FIRSTNAME INPUT */}
                 <View style={styles.inputGroup}>
-                  <Text style={styles.label}>First Name</Text>
+                  <Text style={styles.label}>Prénom</Text>
                   <View style={styles.inputContainer}>
                     <TextInput
                       style={styles.input}
@@ -108,7 +108,7 @@ export default function Signup() {
 
                 {/* LASTNAME INPUT */}
                 <View style={styles.inputGroup}>
-                  <Text style={styles.label}>Last Name</Text>
+                  <Text style={styles.label}>Nom</Text>
                   <View style={styles.inputContainer}>
                     <TextInput
                       style={styles.input}
@@ -123,7 +123,7 @@ export default function Signup() {
 
                 {/* USERNAME INPUT */}
                 <View style={styles.inputGroup}>
-                  <Text style={styles.label}>Username</Text>
+                  <Text style={styles.label}>Identifiant</Text>
                   <View style={styles.inputContainer}>
                     <Ionicons
                       name="person-outline"
@@ -166,7 +166,7 @@ export default function Signup() {
 
                 {/* PHONE NUMBER INPUT */}
                 <View style={styles.inputGroup}>
-                  <Text style={styles.label}>Phone Number</Text>
+                  <Text style={styles.label}>Numéro de téléphone</Text>
                   <View style={styles.inputContainer}>
                     <Ionicons
                       name="call-outline"
@@ -187,7 +187,7 @@ export default function Signup() {
 
                 {/* PASSWORD INPUT */}
                 <View style={styles.inputGroup}>
-                  <Text style={styles.label}>Password</Text>
+                  <Text style={styles.label}>Mot de passe</Text>
                   <View style={styles.inputContainer}>
                     <Ionicons
                       name="lock-closed-outline"
@@ -225,15 +225,15 @@ export default function Signup() {
                   {isLoading ? (
                     <ActivityIndicator color="#fff" />
                   ) : (
-                    <Text style={styles.buttonText}>Sign Up</Text>
+                    <Text style={styles.buttonText}>S’inscrire</Text>
                   )}
                 </TouchableOpacity>
 
                 {/* Footer */}
                 <View style={styles.footer}>
-                  <Text style={styles.footerText}>Already have an account?</Text>
+                  <Text style={styles.footerText}>Vous avez déjà un compte?</Text>
                   <TouchableOpacity onPress={() => router.back()}>
-                    <Text style={styles.link}>Login</Text>
+                    <Text style={styles.link}>Se connecter</Text>
                   </TouchableOpacity>
                 </View>
             </View> 

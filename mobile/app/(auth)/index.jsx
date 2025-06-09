@@ -1,11 +1,11 @@
-import { Alert, View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform } from "react-native";
+import { Alert, View, Text, Image, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform, ScrollView } from "react-native";
 import { Link } from "expo-router";
 import styles from "../../assets/styles/login.styles";
 import { useState } from "react";
 import { Ionicons } from "@expo/vector-icons"
 import COLORS from "../../constants/colors";
 import { useAuthStore } from "../../store/authStore";
-
+import SafeScreen from "../../components/SafeScreen";
 
 export default function Login() {
     const [email, setEmail] = useState("");
@@ -23,11 +23,15 @@ export default function Login() {
     if (isCheckingAuth) return null;
 
     return (
-    <KeyboardAvoidingView
+      <KeyboardAvoidingView
        style={{flex:1}}
        behavior={Platform.OS === "ios" ? "padding" : "height"}
-
     >
+       <ScrollView
+            contentContainerStyle={{ flexGrow: 1 }}
+            keyboardShouldPersistTaps="handled"
+            showsVerticalScrollIndicator={false}
+          >
       <View style={styles.topIllustration}>
             <Image 
               source={require("../../assets/images/login.png")}
@@ -53,7 +57,7 @@ export default function Login() {
                     />
                     <TextInput 
                       style={styles.input}
-                      placeholder="Enter your email"
+                      placeholder="Entrez votre email"
                       placeholderTextColor={COLORS.placeholderText}
                       value={email}
                       onChangeText={setEmail}
@@ -76,7 +80,7 @@ export default function Login() {
                    />
                    <TextInput 
                       style={styles.input}
-                      placeholder="Enter your password"
+                      placeholder="Entrez votre mot de passe"
                       placeholderTextColor={COLORS.placeholderText}
                       value={password}
                       onChangeText={setPassword}
@@ -103,16 +107,16 @@ export default function Login() {
                 {isLoading ? (
                     <ActivityIndicator color="#fff" />
                 ) : (
-                    <Text style={styles.buttonText}>Login</Text>
+                    <Text style={styles.buttonText}>Se connecter</Text>
                 )}
              </TouchableOpacity>
             
             {/* Footer */}
             <View style={styles.footer}>
-                <Text style={styles.footerText}>Don't have an account?</Text>
+                <Text style={styles.footerText}>Vous n’avez pas de compte ?</Text>
                 <Link href="/signup" asChild>
                  <TouchableOpacity>
-                    <Text style={styles.link}>Sign up</Text>
+                    <Text style={styles.link}>S’inscrire</Text>
                  </TouchableOpacity>
                 </Link>
             </View>
@@ -120,6 +124,8 @@ export default function Login() {
            </View>
            </View>
         </View>
+        </ScrollView>
         </KeyboardAvoidingView>
+    
     );
 }
