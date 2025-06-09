@@ -37,14 +37,15 @@ const styles = StyleSheet.create({
     color: '#B0B8C1',
     fontSize: 12,
     textAlign: 'center',
-    marginBottom: 8,
+    marginBottom: 30,
+    
   },
   sectionTitle: {
     fontSize: 16,
     color: '#222',
     fontWeight: '600',
     marginLeft: 18,
-    marginBottom: 10,
+    marginBottom: 20,
     marginTop: 10,
   },
   giftRow: {
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 14,
     marginHorizontal: 18,
-    marginBottom: 14,
+    marginBottom: 20,
     padding: 12,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 1 },
