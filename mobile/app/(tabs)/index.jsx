@@ -1,13 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'react-native';
-import { Ionicons, FontAwesome, MaterialIcons } from '@expo/vector-icons';
+import { useRouter } from "expo-router";
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import styles from "../../assets/styles/home.styles";
 import { useAuthStore } from "../../store/authStore";
 
 export default function HomeScreen() {
-    const { logout } = useAuthStore();
+  const { logout } = useAuthStore();
+  const router = useRouter();
+
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 40 }}>
       {/* Header */}
       <View style={styles.header}>
         <Ionicons name="settings-outline" size={24} color="#222" />
@@ -22,16 +25,14 @@ export default function HomeScreen() {
 
       {/* Bienvenue */}
       <Text style={styles.welcome}>Bienvenue,</Text>
-      <Text style={styles.username}>Paul</Text>
-      <TouchableOpacity onPress={logout}>
-      <Text>Logout</Text>
-     </TouchableOpacity>
+      <Text style={styles.username}>John</Text>
+      
 
       {/* Classement */}
       <View style={styles.rankCard}>
         <Text style={styles.rankNumber}>#10</Text>
         <View style={styles.coinContainer}>
-          <Ionicons name="ios-ellipse" size={18} color="#FFD600" />
+          <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
           <Text style={styles.coinText}>100</Text>
         </View>
         <Text style={styles.rankLabel}>Parmi Les Top Influenceurs De Cette Semaine</Text>
@@ -41,73 +42,60 @@ export default function HomeScreen() {
       <Text style={styles.sectionTitle}>
         Découvrir certains de nos <Text style={{ fontWeight: 'bold' }}>partenaires</Text>
       </Text>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} style={styles.cardsScroll}>
-        {/* Carte partenaire 1 */}
-        <View style={styles.partnerCard}>
-          <Image
-            source={{ uri: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=400&q=80' }}
-            style={styles.partnerImage}
-          />
-          <View style={{ padding: 12 }}>
-            <View style={styles.partnerTitleRow}>
-              <Text style={styles.partnerName}>Le vingt 4</Text>
-              <View style={styles.ratingRow}>
-                <Text style={styles.partnerRating}>4.5</Text>
-                <Ionicons name="star" size={14} color="#FFD600" />
-              </View>
-            </View>
-            <View style={styles.partnerTagsRow}>
-              <View style={styles.partnerTag}>
-                <Text style={styles.partnerTagText}>Restaurant</Text>
-              </View>
-              <View style={styles.partnerTag}>
-                <Text style={styles.partnerTagText}>Bar</Text>
-              </View>
-            </View>
-            <Text style={styles.partnerInfo}>• Prix totale de la commande {'>'} 10 €</Text>
-            <View style={styles.partnerWinRow}>
-              <Text style={styles.partnerWinText}>Win</Text>
-              <Ionicons name="ios-ellipse" size={16} color="#FFD600" style={{ marginHorizontal: 2 }} />
-              <Text style={styles.partnerWinText}>3</Text>
-            </View>
-          </View>
-        </View>
 
-        {/* Carte partenaire 2 (exemple) */}
-        <View style={styles.partnerCard}>
-          <Image
-            source={{ uri: 'https://images.unsplash.com/photo-1526178613658-3f1622045557?auto=format&fit=crop&w=400&q=80' }}
-            style={styles.partnerImage}
-          />
-          <View style={{ padding: 12 }}>
-            <View style={styles.partnerTitleRow}>
-              <Text style={styles.partnerName}>Ivory</Text>
-              <View style={styles.ratingRow}>
-                <Text style={styles.partnerRating}>4.7</Text>
-                <Ionicons name="star" size={14} color="#FFD600" />
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.cardsScroll}
+        contentContainerStyle={{ paddingHorizontal: 10 }}
+      >
+        <View style={styles.cardGrid}>
+          {/* CARD 1 */}
+          <TouchableOpacity style={styles.card} onPress={() => router.push("/(cafe)/cafe1")}>
+            <Image source={require('../../assets/images/paul.jpg')} style={styles.image} />
+            <View style={styles.row}>
+              <Text style={styles.title} numberOfLines={1}>Paul</Text>
+              <View style={styles.rating}>
+                <FontAwesome name="star" size={14} color="#FFD700" />
+                <Text style={styles.ratingText}>3.5</Text>
               </View>
             </View>
-            <View style={styles.partnerTagsRow}>
-              <View style={styles.partnerTag}>
-                <Text style={styles.partnerTagText}>Restaurant</Text>
+            <Text style={styles.category} numberOfLines={1}>Café</Text>
+            <Text style={styles.priceNote}>*Prix total de la commande : 10€</Text>
+            <View style={styles.winRow}>
+              <Text style={styles.winText}>Win 3</Text>
+              <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
+            </View>
+          </TouchableOpacity>
+
+          {/* CARD 2 */}
+          <TouchableOpacity style={styles.card} onPress={() => router.push("/(cafe)/cafe2")}>
+            <Image source={require('../../assets/images/barista.jpg')} style={styles.image} />
+            <View style={styles.row}>
+              <Text style={styles.title} numberOfLines={1}>Barista</Text>
+              <View style={styles.rating}>
+                <FontAwesome name="star" size={14} color="#FFD700" />
+                <Text style={styles.ratingText}>4.5</Text>
               </View>
             </View>
-            <Text style={styles.partnerInfo}>• Prix totale de la commande {'>'} 15 €</Text>
-            <View style={styles.partnerWinRow}>
-              <Text style={styles.partnerWinText}>Win</Text>
-              <Ionicons name="ios-ellipse" size={16} color="#FFD600" style={{ marginHorizontal: 2 }} />
-              <Text style={styles.partnerWinText}>5</Text>
+            <Text style={styles.category} numberOfLines={1}>Café</Text>
+            <Text style={styles.priceNote}>*Prix total de la commande : 10€</Text>
+            <View style={styles.winRow}>
+              <Text style={styles.winText}>Win 3</Text>
+              <Ionicons name="logo-bitcoin" size={16} color="#FFD700" />
             </View>
-          </View>
+          </TouchableOpacity>
+
+         
         </View>
       </ScrollView>
+      <TouchableOpacity style={styles.logoutButton} onPress={logout}>
+         <Text style={styles.logoutButtonText}>Logout</Text>
+      </TouchableOpacity>
 
-      {/* Besoin d'aide */}
-      <Text style={styles.helpText}>Besoin de l'aide ?</Text>
-
-      
-    </View>
+      <TouchableOpacity onPress={() => router.push("/(help)/about")}>
+  <Text style={styles.helpText}>Besoin de l'aide ?</Text>
+</TouchableOpacity>
+    </ScrollView>
   );
 }
-
-
