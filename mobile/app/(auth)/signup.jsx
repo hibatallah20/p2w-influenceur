@@ -7,7 +7,7 @@ import { useRouter } from 'expo-router';
 import { useAuthStore } from '../../store/authStore.js';
 
 export default function Signup() {
-  const [step, setStep] = useState('choice'); // Nouvelle étape : choice ou form
+  const [step, setStep] = useState('choice'); 
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -23,6 +23,7 @@ export default function Signup() {
   const handleSignup = async () => {
     const result = await register(firstname, lastname, username, email, phone, password);
     if (!result.success) Alert.alert('Error', result.error);
+
   };
 
   const handleCommercant = () => {
