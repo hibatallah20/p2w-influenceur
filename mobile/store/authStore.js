@@ -5,9 +5,10 @@ export const useAuthStore = create((set) => ({
     token: null,
     isLoading: false,
     isCheckingAuth:true,
+    authMethod: null,
 
     register: async (firstname,lastname,username,email,phone,password) => {
-        set({ isLoading: true });
+        set({ isLoading: true,authMethod: "register" });
         try {
             const response= await fetch("https://aba1b92a-dc6b-4d7e-8a0f-13dc172b5bf0-00-21h5imnegsexy.spock.replit.dev/api/auth/register", {
                 method: "POST",
@@ -51,7 +52,7 @@ export const useAuthStore = create((set) => ({
 
 
     login: async(email,password) => {
-        set({ isLoading: true });
+        set({ isLoading: true, authMethod: "login"  });
 
         try{
             const response = await fetch("https://aba1b92a-dc6b-4d7e-8a0f-13dc172b5bf0-00-21h5imnegsexy.spock.replit.dev/api/auth/login", {

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Switch, Linking, ScrollView, Alert, StyleShee } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, Image,StyleSheet, Switch, Linking, ScrollView, Alert, StyleShee } from 'react-native';
 import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
+import { Link } from "expo-router";
 
 export default function CustomProfileScreen() {
   const [bio, setBio] = useState('');
@@ -37,9 +38,14 @@ const handleAddPress = () => {
   return (
     <ScrollView contentContainerStyle={styles.container}>
       <View style={styles.header}>
-        <TouchableOpacity style={styles.backBtn} onPress={() => router.back()}>
+            <TouchableOpacity 
+          style={styles.backBtn} 
+          onPress={() => router.back()} 
+        >
           <Ionicons name="chevron-back" size={26} color="#222" />
         </TouchableOpacity>
+        
+        
         <TouchableOpacity style={styles.infoBtn}>
           <Ionicons name="information-circle-outline" size={24} color="#222" />
         </TouchableOpacity>

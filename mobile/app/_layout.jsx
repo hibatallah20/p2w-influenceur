@@ -13,7 +13,7 @@ export default function RootLayout() {
   const router = useRouter();
   const segments = useSegments();
 
-  const {checkAuth,user,token} = useAuthStore();
+  const {checkAuth,user,token, authMethod } = useAuthStore();
 
   const [fontsLoaded] = useFonts({
     "JetBrainsMono-Medium": require("../assets/fonts/JetBrainsMono-Medium.ttf"),
@@ -27,16 +27,29 @@ export default function RootLayout() {
     checkAuth();
   },[])
 
-  // handle navigation based on the auth state
+/*   // handle navigation based on the auth state
   useEffect(() => {
     const inAuthScreen = segments[0] === "(auth)";
     const isSignedIn = user && token;
 
     if(!isSignedIn && !inAuthScreen) router.replace("/(auth)");
     else if(isSignedIn && inAuthScreen) router.replace("/(auth)/Form");
-  }, [user, token, segments]);
+  }, [user, token, segments]); */
 
+useEffect(() => {
+  const inAuthScreen = segments[0] === "(auth)";
+  const isSignedIn = user && token;
 
+  if (!isSignedIn && !inAuthScreen) {
+    router.replace("/(auth)");
+  } else if (isSignedIn && inAuthScreen) {
+    if (authMethod === "register") {
+      router.replace("/(auth)/Form"); 
+    } else {
+      router.replace("/(tabs)"); 
+    }
+  }
+}, [user, token, segments, authMethod]);
 
   return (
 
