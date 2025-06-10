@@ -3,20 +3,21 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'rea
 import { useRouter } from "expo-router";
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import styles from "../../assets/styles/home.styles";
-import { useAuthStore } from "../../store/authStore";
+
 
 export default function HomeScreen() {
-  const { logout } = useAuthStore();
   const router = useRouter();
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 40 }}>
       {/* Header */}
       <View style={styles.header}>
-        <Ionicons name="settings-outline" size={24} color="#222" />
+        <TouchableOpacity onPress={() => router.push("/(help)/settings")}>
+          <Ionicons name="settings-outline" size={24} color="#222" />
+        </TouchableOpacity>
         <View style={styles.headerRight}>
           <Ionicons name="notifications-outline" size={24} color="#222" style={{ marginRight: 16 }} />
-          <TouchableOpacity style={styles.avatarCircle}>
+          <TouchableOpacity style={styles.avatarCircle} onPress={() => router.push("/(help)/profile")}>
             <Ionicons name="person" size={22} color="#fff" />
           </TouchableOpacity>
           <Ionicons name="chevron-down" size={18} color="#222" style={{ marginLeft: 4 }} />
@@ -89,9 +90,7 @@ export default function HomeScreen() {
          
         </View>
       </ScrollView>
-      <TouchableOpacity style={styles.logoutButton} onPress={logout}>
-         <Text style={styles.logoutButtonText}>Logout</Text>
-      </TouchableOpacity>
+      
 
       <TouchableOpacity onPress={() => router.push("/(help)/about")}>
          <Text style={styles.helpText}>Besoin de l'aide ?</Text>
