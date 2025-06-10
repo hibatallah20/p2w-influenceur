@@ -38,7 +38,7 @@ const Profil = () => {
         <Text style={styles.sectionTitle}>Prénom:</Text>
         <View style={styles.bioContainer}>
           <Text style={styles.bio}>
-            Doe
+            izack
           </Text>
         </View>
       </View>
