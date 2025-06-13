@@ -1,11 +1,15 @@
 import { create } from "zustand";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 export const useAuthStore = create((set) => ({
+    forgotEmail: '',
+    setForgotEmail: (email) => set({ forgotEmail: email }),
     user: null,
     token: null,
     isLoading: false,
     isCheckingAuth:true,
     authMethod: null,
+    
+    
 
     register: async (firstname,lastname,username,email,phone,password) => {
         set({ isLoading: true,authMethod: "register" });
@@ -100,4 +104,34 @@ export const useAuthStore = create((set) => ({
         await AsyncStorage.removeItem("user");
         set ({ token: null, user : null});
     },
+
+    resetPassword: async (token, newPassword) => {
+  set({ isLoading: true, authMethod: "resetPassword" });
+  try {
+    const response = await fetch("https://ton-backend/api/auth/reset-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ token, newPassword }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || "Something went wrong");
+    }
+
+    set({ isLoading: false });
+
+    return { success: true, message: data.message };
+  } catch (error) {
+    set({ isLoading: false });
+    return { success: false, error: error.message };
+  }
+},
+updateUser: (newData) => set((state) => ({
+        user: {
+            ...state.user,
+            ...newData,
+        }
+    })),
 }));

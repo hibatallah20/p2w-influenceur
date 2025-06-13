@@ -6,12 +6,15 @@ import { Ionicons } from "@expo/vector-icons"
 import COLORS from "../../constants/colors";
 import { useAuthStore } from "../../store/authStore";
 import SafeScreen from "../../components/SafeScreen";
+import { useRouter } from "expo-router";
 
 export default function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
     const {isLoading, login, isCheckingAuth } = useAuthStore();
+
+    const router = useRouter();
 
     
     const handleLogin = async () => {
@@ -109,6 +112,10 @@ export default function Login() {
                 ) : (
                     <Text style={styles.buttonText}>Se connecter</Text>
                 )}
+             </TouchableOpacity>
+
+             <TouchableOpacity onPress={() => router.push("/(auth)/ForgotPassword")}>
+               <Text style={styles.footerText}>Mot de passe oublié ?</Text>
              </TouchableOpacity>
             
             {/* Footer */}

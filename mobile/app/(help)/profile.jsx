@@ -8,8 +8,8 @@ import COLORS from "../../constants/colors";
 
 const Profil = () => {
   const router = useRouter();
-  const { logout } = useAuthStore();
-  const instagramHandle = 'votre_compte';
+  const { logout, user } = useAuthStore(); 
+  const instagramHandle = user?.instagram || 'votre_compte';
   const instagramUrl = `https://instagram.com/${instagramHandle}`;
 
   return (
@@ -21,36 +21,17 @@ const Profil = () => {
         <Ionicons name="chevron-back" size={24} color="#000" />
       </TouchableOpacity>
 
-      {/* USERNAME */}
-      <View style={styles.sectionContainer}>
-        <View style={styles.usernameContainer}>
-          
-          <Image
-            source={require('../../assets/images/avatar1.webp')}
-            style={styles.profileImage}
-          />
-          <Text style={styles.username}>John</Text>
-        </View>
-      </View>
+     <View style={styles.sectionContainer}>
+  <View style={styles.usernameContainer}>
+    <Image
+      source={require('../../assets/images/avatar1.webp')}
+      style={styles.profileImage}
+    />
+    <Text style={styles.username}>{user?.username || 'Nom utilisateur'}</Text>
+  </View>
+</View>
 
 
-       <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>Prénom:</Text>
-        <View style={styles.bioContainer}>
-          <Text style={styles.bio}>
-            izack
-          </Text>
-        </View>
-      </View>
-
-       <View style={styles.sectionContainer}>
-        <Text style={styles.sectionTitle}>Nom:</Text>
-        <View style={styles.bioContainer}>
-          <Text style={styles.bio}>
-        John
-          </Text>
-        </View>
-      </View>
 
       {/* BIO */}
       <View style={styles.sectionContainer}>

@@ -1,15 +1,29 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, Image,StyleSheet, Switch, Linking, ScrollView, Alert, StyleShee } from 'react-native';
-import { Ionicons, MaterialIcons, FontAwesome } from '@expo/vector-icons';
+import React, { useState, useEffect } from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, ScrollView, Alert } from 'react-native';
+import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import { useRouter } from 'expo-router';
-import { Link } from "expo-router";
+import { useAuthStore } from '../../store/authStore';
 
 export default function CustomProfileScreen() {
-  const [bio, setBio] = useState('');
-  const [selectedTags, setSelectedTags] = useState(['Café']);
-  const [instagram, setInstagram] = useState('www.instagram.com/test_1');
-  const [accepted, setAccepted] = useState(false);
   const router = useRouter();
+
+  // Récupération du user depuis le store
+  const { user, updateUser } = useAuthStore();
+
+  const [loading, setLoading] = useState(false);
+  const [bio, setBio] = useState(user?.bio || '');
+  const [selectedTags, setSelectedTags] = useState(
+    Array.isArray(user?.interests) && user.interests.length > 0
+      ? user.interests
+      : ['Café']
+  );
+  const [instagram, setInstagram] = useState(user?.instagram || '');
+  const [accepted, setAccepted] = useState(false);
+
+  // Affiche user dans console pour debug
+  useEffect(() => {
+    console.log('User dans CustomProfileScreen:', user);
+  }, [user]);
 
   const tags = [
     { label: 'Restaurant', color: '#38E2C4' },
@@ -21,19 +35,49 @@ export default function CustomProfileScreen() {
     setSelectedTags([tag]);
   };
 
-const handleAddPress = () => {
-  console.log("Bouton cliqué - accepted:", accepted, "instagram:", instagram); // Debug
-  if (!accepted) {
-    Alert.alert('Erreur', 'Veuillez accepter les conditions.');
-    return;
-  }
-  if (!instagram) {
-    Alert.alert('Erreur', 'Veuillez ajouter Instagram.');
-    return;
-  }
-  console.log("Tentative de navigation vers /(tabs)"); 
-  router.replace("/(tabs)"); 
-};
+  const handleUpdateProfile = async () => {
+    if (!user || !user.id) {
+  Alert.alert('Erreur', 'Utilisateur non connecté.');
+  return;
+}
+    setLoading(true);
+    try {
+      console.log("Updating user with ID:", user._id);
+      const response = await fetch(`https://aba1b92a-dc6b-4d7e-8a0f-13dc172b5bf0-00-21h5imnegsexy.spock.replit.dev/api/auth/update-profile/${user.id}`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ bio, instagram, interests: selectedTags }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        Alert.alert('Erreur', data.message || 'Erreur lors de la mise à jour');
+        return;
+      }
+
+      updateUser(data.user || data); // Met à jour user dans le store
+      Alert.alert("Profil mis à jour !");
+    } catch (error) {
+      console.error(error);
+      Alert.alert("Erreur lors de la mise à jour");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAddPress = async () => {
+    if (!accepted) {
+      Alert.alert('Erreur', 'Veuillez accepter les conditions.');
+      return;
+    }
+    if (!instagram) {
+      Alert.alert('Erreur', 'Veuillez ajouter Instagram.');
+      return;
+    }
+    await handleUpdateProfile();
+    router.replace("/(tabs)");
+  };
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -99,8 +143,10 @@ const handleAddPress = () => {
       </View>
 
       <View style={styles.selectedTagBox}>
-        <Text style={[styles.selectedTagText, { color: '#A98CF8' }]}>1. Café</Text>
-      </View>
+  {selectedTags.length > 0 ? (
+    <Text style={[styles.selectedTagText, { color: '#A98CF8' }]}>1. {selectedTags[0]}</Text>
+  ) : null}
+</View>
 
       <Text style={styles.instagramLabel}>
         Associez votre compte Instagram à <Text style={{ fontWeight: 'bold' }}>P2W</Text> pour vérifier vos stories et remporter des récompenses*
@@ -135,12 +181,12 @@ const handleAddPress = () => {
       </View>
 
       <TouchableOpacity 
-        style={[styles.addBtn, !accepted && styles.disabledBtn]} 
-        onPress={handleAddPress}
-        disabled={!accepted}
-      >
-        <Text style={styles.addBtnText}>Ajouter</Text>
-      </TouchableOpacity>
+  style={[styles.addBtn, (!accepted || loading) && styles.disabledBtn]} 
+  onPress={handleAddPress}
+  disabled={!accepted || loading}
+>
+  <Text style={styles.addBtnText}>{loading ? "Chargement..." : "Ajouter"}</Text>
+</TouchableOpacity>
     </ScrollView>
   );
 }

@@ -3,10 +3,12 @@ import { View, Text, StyleSheet, Image, ScrollView, TouchableOpacity } from 'rea
 import { useRouter } from "expo-router";
 import { Ionicons, FontAwesome } from '@expo/vector-icons';
 import styles from "../../assets/styles/home.styles";
+import { useAuthStore } from '../../store/authStore'; 
 
 
 export default function HomeScreen() {
   const router = useRouter();
+   const user = useAuthStore(state => state.user);
 
   return (
     <ScrollView style={styles.container} contentContainerStyle={{ paddingBottom: 40 }}>
@@ -26,7 +28,7 @@ export default function HomeScreen() {
 
       {/* Bienvenue */}
       <Text style={styles.welcome}>Bienvenue,</Text>
-      <Text style={styles.username}>John</Text>
+      <Text style={styles.username}>{user?.username || "Invité"}</Text>
       
 
       {/* Classement */}
